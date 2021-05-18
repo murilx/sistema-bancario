@@ -2,6 +2,6 @@
 #define EXCEPTIONS_HPP
 
 #include "entradaInvalida.hpp"
-#include "parametroInvalido.hpp"
+#include "totalIncorreto.hpp"
 
 #endif

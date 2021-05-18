@@ -5,7 +5,7 @@
 #include "banco/Banco.hpp"
 
 int main() {
-    int opt;
+    int opt, id;
     Banco banco;
 
     do {
@@ -23,7 +23,7 @@ int main() {
             switch(opt) {
                 case 1: banco.mostraClientes(); break;
                 case 2: banco.mostraContas(); break;
-                case 3: break;
+                case 3: scanf("%d", &id); banco.mostraSaldo(id); break;
                 case 4: break;
                 case 5: break;
                 case 6: break;
@@ -34,6 +34,11 @@ int main() {
 
         catch (entradaInvalida &e) {
             printf("\nErro: %s\n\n", e.what());
+        }
+
+        catch (totalIncorreto &e) {
+            printf("\nErro: %s\n\n", e.what());
+            break;
         }
 
         catch (std::exception &e) {

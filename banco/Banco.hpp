@@ -26,9 +26,11 @@ class Banco {
             contas.push_back(new Conta(clientes.at(0), 100000));
             contas.push_back(new Conta(clientes.at(1), 100000));
             contas.push_back(new Conta(clientes.at(2), 100000));
+            contas.push_back(new Conta(clientes.at(1), 50000));
 
             // Determinando o balanço geral / Total de dinheiro no banco
             // E determinando o número/ID de cada conta
+            total = 0;
             for(int i = 0; i < (int)contas.size(); i++) {
                 contas.at(i)->setID(i + 1);
                 total += contas.at(i)->getSaldo();
@@ -51,11 +53,20 @@ class Banco {
         }
 
         // Métodos
+        void testaTotal() throw (totalIncorreto);
+
         void mostraClientes();
         void mostraContas();
-        void mostraSaldo(int id) throw (parametroInvalido);
-        void mostraExtrato(int id) throw (parametroInvalido);
+        void mostraSaldo(int id) throw (entradaInvalida);
+        void mostraExtrato(int id) throw (entradaInvalida);
         void mostraTotal();
+
+        // Getters e setters
+        inline int getTotal() const;
 };
+
+inline int Banco::getTotal() const {
+    return (this->total);
+}
 
 #endif
