@@ -22,12 +22,15 @@ class Banco {
             clientes.push_back(new Cliente(std::string("Ruan Perez")));
 
             // Criação de contas
-            contas.push_back(new Conta(clientes.at(0), 1000));
-            contas.push_back(new Conta(clientes.at(1), 1000));
-            contas.push_back(new Conta(clientes.at(2), 1000));
+            // Valores em centavos
+            contas.push_back(new Conta(clientes.at(0), 100000));
+            contas.push_back(new Conta(clientes.at(1), 100000));
+            contas.push_back(new Conta(clientes.at(2), 100000));
 
             // Determinando o balanço geral / Total de dinheiro no banco
+            // E determinando o número/ID de cada conta
             for(int i = 0; i < (int)contas.size(); i++) {
+                contas.at(i)->setID(i + 1);
                 total += contas.at(i)->getSaldo();
             }
         }
