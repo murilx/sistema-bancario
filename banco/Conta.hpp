@@ -42,7 +42,10 @@ class Conta {
         inline int getSaldo() const;
         inline int getID() const;
         inline Cliente* getCliente() const;
+        inline std::vector<Transferencia*> getTransferencias() const;
         inline void setID(int id);
+        inline void setSaldo(int valor);
+        inline void setTransferencia(int id_em, int id_des, int valor);
 };
 
 // Getters e Setters
@@ -58,8 +61,21 @@ inline Cliente* Conta::getCliente() const {
     return (this->cliente);
 }
 
+inline std::vector<Transferencia*> Conta::getTransferencias() const {
+    return (this->transferencias);
+}
+
 inline void Conta::setID(int id) {
     this->id = id;
 }
 
+inline void Conta::setSaldo(int valor) {
+    this->saldo = valor;
+}
+
+inline void Conta::setTransferencia(int id_em, int id_des, int valor) {
+    Transferencia *aux = new Transferencia(id_em, id_des, valor);
+
+    this->transferencias.push_back(aux);
+}
 #endif

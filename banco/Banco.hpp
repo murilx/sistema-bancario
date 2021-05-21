@@ -54,12 +54,14 @@ class Banco {
 
         // Métodos
         void testaTotal() throw (totalIncorreto);
+        Conta* testaEntrada(int id) throw (entradaInvalida);
 
         void mostraClientes();
         void mostraContas();
         void mostraSaldo(int id) throw (entradaInvalida);
         void mostraExtrato(int id) throw (entradaInvalida);
-        void mostraTotal();
+        void transferencia(int id_em, int id_des, int valor) throw (entradaInvalida, totalIncorreto, saldoInsuficiente); 
+        void mostraTotal() throw (totalIncorreto);
 
         // Getters e setters
         inline int getTotal() const;

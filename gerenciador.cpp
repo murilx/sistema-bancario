@@ -24,9 +24,19 @@ int main() {
                 case 1: banco.mostraClientes(); break;
                 case 2: banco.mostraContas(); break;
                 case 3: scanf("%d", &id); banco.mostraSaldo(id); break;
-                case 4: break;
-                case 5: break;
-                case 6: break;
+                case 4: scanf("%d", &id); banco.mostraExtrato(id); break;
+                case 5:
+                    int id_em, id_des, valor;
+                    printf("ID do emissario: ");
+                    scanf("%d", &id_em);
+                    printf("ID do destinatario: ");
+                    scanf("%d", &id_des);
+                    printf("Valor a ser transferido (em centavos): ");
+                    scanf("%d", &valor);
+
+                    banco.transferencia(id_em, id_des, valor);
+                    break;
+                case 6: banco.mostraTotal(); break;
                 case 0: printf("\nSaindo...\n"); break;
                 default: throw entradaInvalida();
             }
@@ -39,6 +49,10 @@ int main() {
         catch (totalIncorreto &e) {
             printf("\nErro: %s\n\n", e.what());
             break;
+        }
+
+        catch (saldoInsuficiente &e) {
+            printf("\nErro: %s\n\n", e.what());
         }
 
         catch (std::exception &e) {

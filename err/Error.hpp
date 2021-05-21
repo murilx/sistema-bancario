@@ -3,5 +3,6 @@
 
 #include "entradaInvalida.hpp"
 #include "totalIncorreto.hpp"
+#include "saldoInsuficiente.hpp"
 
 #endif
