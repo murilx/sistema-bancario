@@ -11,8 +11,8 @@ int main() {
     do {
         printf("1. Listar clientes\n");
         printf("2. Listar contas\n");
-        printf("3. Saldo do cliente\n");
-        printf("4. Extrato do cliente\n");
+        printf("3. Saldo da conta\n");
+        printf("4. Extrato da conta\n");
         printf("5. Realizar transferencia bancaria\n");
         printf("6. Mostrar valor total de todas as contas\n");
         printf("0. Sair\n");
@@ -27,9 +27,9 @@ int main() {
                 case 4: scanf("%d", &id); banco.mostraExtrato(id); break;
                 case 5:
                     int id_em, id_des, valor;
-                    printf("ID do emissario: ");
+                    printf("ID da conta de origem: ");
                     scanf("%d", &id_em);
-                    printf("ID do destinatario: ");
+                    printf("ID da conta de destino: ");
                     scanf("%d", &id_des);
                     printf("Valor a ser transferido (em centavos): ");
                     scanf("%d", &valor);

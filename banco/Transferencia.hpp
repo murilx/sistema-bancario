@@ -1,32 +1,34 @@
 #ifndef TRANSFERENCIA_HPP
 #define TRANSFERENCIA_HPP
 
+#include "Conta.hpp"
+
 class Transferencia {
     private:
-        int id_emissario;
-        int id_destinatario;
+        Conta* origem;
+        Conta* destino;
         int v_enviado;
 
     public:
         // Construtor com parâmetros
-        Transferencia(int id_em, int id_des, int valor) {
-            this->id_emissario = id_em;
-            this->id_destinatario = id_des;
+        Transferencia(Conta* origem, Conta* destino, int valor) {
+            this->origem = origem;
+            this->destino = destino;
             this->v_enviado = valor;
         }
 
         // Getters e setters
-        inline int getIdEm() const;
-        inline int getIdDes() const;
+        inline Conta* getOrigem() const;
+        inline Conta* getDestino() const;
         inline int getValor() const;
 };
 
-inline int Transferencia::getIdEm() const {
-    return (this->id_emissario);
+inline Conta* Transferencia::getOrigem() const {
+    return (this->origem);
 }
 
-inline int Transferencia::getIdDes() const {
-    return (this->id_destinatario);
+inline Conta* Transferencia::getDestino() const {
+    return (this->destino);
 }
 
 inline int Transferencia::getValor() const {
