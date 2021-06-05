@@ -9,6 +9,7 @@ int main() {
     Banco banco;
 
     do {
+        printf("\n");
         printf("1. Listar clientes\n");
         printf("2. Listar contas\n");
         printf("3. Saldo da conta\n");
@@ -38,25 +39,29 @@ int main() {
                     break;
                 case 6: banco.mostraTotal(); break;
                 case 0: printf("\nSaindo...\n"); break;
-                default: throw entradaInvalida();
+                default: throw opcaoInvalida();
             }
         }
 
-        catch (entradaInvalida &e) {
-            printf("\nErro: %s\n\n", e.what());
+        catch (opcaoInvalida &e) {
+            printf("\nErro: %s\n", e.what());
         }
 
         catch (totalIncorreto &e) {
-            printf("\nErro: %s\n\n", e.what());
+            printf("\nErro: %s\n", e.what());
             break;
         }
 
+        catch (contaInexistente &e) {
+            printf("\nErro: %s\n", e.what());
+        }
+
         catch (saldoInsuficiente &e) {
-            printf("\nErro: %s\n\n", e.what());
+            printf("\nErro: %s\n", e.what());
         }
 
         catch (std::exception &e) {
-            printf("\nErro indefinido identificado\n\n");
+            printf("\nErro indefinido identificado.\n");
         }
 
     } while(opt != 0);

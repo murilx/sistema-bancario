@@ -14,7 +14,7 @@ void Banco::testaTotal() throw (totalIncorreto) {
     if(this->getTotal() != total_teste) throw totalIncorreto();
 }
 
-Conta* Banco::testaEntrada(int id) throw (entradaInvalida) {
+Conta* Banco::testaEntrada(int id) throw (contaInexistente) {
     /* Valida os IDs enviados pelo usuário e se existir alguma conta com esse
        ID, retorna a conta */
     Conta *aux;
@@ -32,7 +32,7 @@ Conta* Banco::testaEntrada(int id) throw (entradaInvalida) {
 
     // Envia um erro de entrada invalida caso o ID inserido
     // não corresponda com nenhum ID das contas
-    if(!found) throw entradaInvalida();
+    if(!found) throw contaInexistente();
 
     return (aux);
 }
@@ -46,8 +46,6 @@ void Banco::mostraClientes() {
             this->clientes.at(i)->getNome().c_str(),
             this->clientes.at(i)->getCPF().c_str());
     }
-
-    printf("\n");
 }
 
 void Banco::mostraContas() {
@@ -59,11 +57,9 @@ void Banco::mostraContas() {
             this->contas.at(i).getID(),
             this->contas.at(i).getCliente()->getNome().c_str());
     }
-
-    printf("\n");
 }
 
-void Banco::mostraSaldo(int id) throw (entradaInvalida) {
+void Banco::mostraSaldo(int id) throw (contaInexistente) {
     /* Mostra o saldo de uma conta especifica 
        emite um erro caso seja inserido um ID de conta errado */
     Conta *aux;
@@ -76,29 +72,32 @@ void Banco::mostraSaldo(int id) throw (entradaInvalida) {
         aux->getSaldo()/100.00);
 }
 
-void Banco::mostraExtrato(int id) throw (entradaInvalida) {
+void Banco::mostraExtrato(int id) throw (contaInexistente) {
     /* Mostra todas as transferências de uma conta */
     Conta *aux;
-    aux = testaEntrada(id);
+    int count = 0;
+
+    aux = this->testaEntrada(id);
 
     // Mostra as transferencias
     for(int i = 0; i < (int)transferencias.size(); i++) {
-        printf("\nTransferencia %d\n", i + 1);
 
         // Verifica se recebeu ou enviou
         if(transferencias.at(i).getOrigem()->getID() == aux->getID()) {
+            printf("\nTransferencia %d\n", ++count);
             printf("Destinatario: %05d\n", transferencias.at(i).getDestino()->getID());
+            printf("Valor transferido: %.2lf\n\n", transferencias.at(i).getValor()/100.00);
         }
 
         if(transferencias.at(i).getDestino()->getID() == aux->getID()) {
+            printf("\nTransferencia %d\n", ++count);
             printf("Emissario: %05d\n", transferencias.at(i).getOrigem()->getID());
+            printf("Valor transferido: %.2lf\n\n", transferencias.at(i).getValor()/100.00);
         }
-
-        printf("Valor transferido: %.2lf\n\n", transferencias.at(i).getValor()/100.00);
     } 
 }
 
-void Banco::transferencia(int id_em, int id_des, int valor) throw (entradaInvalida, totalIncorreto, saldoInsuficiente) {
+void Banco::transferencia(int id_em, int id_des, int valor) throw (contaInexistente, totalIncorreto, saldoInsuficiente) {
     /* Envia dinheiro do emissario pro destinatário e registra o valor na conta */
     Conta *origem;
     Conta *destino;
