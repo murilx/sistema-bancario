@@ -1,8 +1,25 @@
+/*
+    Nome do programa: gerenciador.cpp
+    Desenvolvedor: Murilo Magiolo Geraldini <murilo.geraldini@unesp.br>
+    Matéria: Programação Orientada a Objetos
+
+    Descrição: Código destinado para o Trabalho 1 da matéria de 
+    Programação Orientada a Objetos. O código se trata de um sistema
+    bancário simplista. 
+
+    O banco que está sendo gerenciado já começa com 4 contas, todas
+    com saldo inicial de 1000 reais, e 3 clientes.
+*/
+
 #include <stdio.h>
 #include <exception>
 
 #include "err/Error.hpp"
 #include "banco/Banco.hpp"
+
+/* Optei por deixar o printf e o scanf ao invés de std::cout e std::cin pois a
+   classe Banco se beneficia da capacidade de 'formatação' de texto do printf, deixando
+   o código menor e mais fácil de ser lido na minha opinião */
 
 int main() {
     int opt, id;
@@ -49,7 +66,6 @@ int main() {
 
         catch (totalIncorreto &e) {
             printf("\nErro: %s\n", e.what());
-            break;
         }
 
         catch (contaInexistente &e) {
@@ -61,7 +77,11 @@ int main() {
         }
 
         catch (std::exception &e) {
-            printf("\nErro indefinido identificado.\n");
+            printf("\nErro: %s\n", e.what());
+        }
+
+        catch (...) {
+            printf("\nErro: Erro indefinido.\n");
         }
 
     } while(opt != 0);

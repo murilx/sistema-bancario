@@ -33,7 +33,6 @@ class Conta {
         inline void setSaldo(int valor);
 };
 
-// Getters e Setters
 inline int Conta::getSaldo() const {
     return (this->saldo);
 }

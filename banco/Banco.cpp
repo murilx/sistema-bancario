@@ -82,7 +82,8 @@ void Banco::mostraExtrato(int id) throw (contaInexistente) {
     // Mostra as transferencias
     for(int i = 0; i < (int)transferencias.size(); i++) {
 
-        // Verifica se recebeu ou enviou
+        // Verifica se recebeu ou enviou e determina o que será
+        // mostrado na tela a partir disso
         if(transferencias.at(i).getOrigem()->getID() == aux->getID()) {
             printf("\nTransferencia %d\n", ++count);
             printf("Destinatario: %05d\n", transferencias.at(i).getDestino()->getID());
