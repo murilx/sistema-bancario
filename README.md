@@ -46,3 +46,21 @@ Lance tipos específicos de exceções, como por exemplo, ao detectar número de
 Escreva destrutores e garanta que todos os ponteiros alocados com "new" sejam desalocados com "delete" ao término do programa.
 
 **Linguagem:** C++ 2003.
+
+## Instalação
+Caso você queira ver o funcionamento do programa você pode compila-lo na sua máquina. Para isso é necessário que tenha as seguintes dependências
+* git (Dispensável caso baixe o código fonte em formato compactado pelo GitHub).
+* g++
+* make
+
+O processo de download e compilação é feito pelos seguintes passos
+```sh
+git clone https://github.com/murilx/sistema-bancario-cpp.git
+cd sistema-bancario-cpp
+make
+```
+
+Após a execução do make você pode executar o programa
+```sh
+./gerenciador
+```
