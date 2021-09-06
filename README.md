@@ -2,7 +2,7 @@
 > Programa criado para a matéria de Programação Orientada a Objetos 
 
 Um mini sistema bancário feito em C++ com o objetivo de estudar e implementar um projeto utilizando o paradigma de programação orientada a objeto, bem como
-o estudo e implementação de excessões. 
+o estudo e implementação de exceções. 
 
 ## Funcionamento
 O usuário é capaz de controlar o programa através de um menu de console. O programa possui 6 opções, estas são
@@ -40,7 +40,7 @@ cd sistema-bancario-cpp
 make
 ```
 
-Após a execução do make você pode executar o programa
+Após a execução do `make` você pode executar o programa, por exemplo, através do terminal
 ```sh
 ./gerenciador
 ```
