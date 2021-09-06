@@ -1,6 +1,49 @@
 # Sistema Bancário C++
 > Programa criado para a matéria de Programação Orientada a Objetos 
 
+Um mini sistema bancário feito em C++ com o objetivo de estudar e implementar um projeto utilizando o paradigma de programação orientada a objeto, bem como
+o estudo e implementação de excessões. 
+
+## Funcionamento
+O usuário é capaz de controlar o programa através de um menu de console. O programa possui 6 opções, estas são
+
+1. Listar clientes
+2. Listar contas
+3. Saldo da conta
+4. Extrato da conta
+5. Realizar transferência entre contas
+6. Mostrar valores totais das contas
+
+Como o objetivo do projeto não era a criação de um modelo real e com propósito no mundo real e sim estudar o paradigma de programção orientada a objeto e
+também a escrita de testes (através do lançamento de excessões) como pode ser visto no [enunciado](##Enunciado) do projeto, não há nenhum modo de inserção
+de clientes e/ou contas e todas elas foram introduzidas no código fonte do projeto.
+
+Como resultado, o projeto possui **4 contas** e **3 clientes**. Cada conta possui um saldo preestabelecido e devem pertencer a um cliente. Três das contas
+possui saldo inicial de 1000 reais e a outra possui saldo inicial de 500 reais.
+
+Todo o dinheiro foi tratado como sendo um `int` e estando em centavos para evitar qualquer problema de arredondamento durante as manipulações 
+de saldo que poderiam ser causadas caso fosse utilizado variáveis `double`.
+
+
+
+## Instalação
+Caso você queira ver o funcionamento do programa você pode compila-lo na sua máquina. Para isso é necessário que tenha as seguintes dependências
+* git (Dispensável caso baixe o código fonte em formato compactado pelo GitHub).
+* g++
+* make
+
+O processo de download e compilação é feito pelos seguintes passos
+```sh
+git clone https://github.com/murilx/sistema-bancario-cpp.git
+cd sistema-bancario-cpp
+make
+```
+
+Após a execução do make você pode executar o programa
+```sh
+./gerenciador
+```
+
 ## Enunciado
 > Enunciado retirado do enunciado original feito pelo professor da matéria Thiago Gottardi
 
@@ -16,7 +59,8 @@ No currículo 1998, esta disciplina é nomeada "Linguagens Comerciais de Program
 
 A vantagem de implementar um sistema bancário é sua importância intrínseca de auditoria contábil, que ensina os alunos a escrever testes de forma natural.
 
-Projeto e Requisitos
+**Projeto e Requisitos**
+
 Implemente um sistema bancário simplista. Neste sistema, devem ser gerenciados os seguintes conceitos:
 
 **Conceitos:**
@@ -46,21 +90,3 @@ Lance tipos específicos de exceções, como por exemplo, ao detectar número de
 Escreva destrutores e garanta que todos os ponteiros alocados com "new" sejam desalocados com "delete" ao término do programa.
 
 **Linguagem:** C++ 2003.
-
-## Instalação
-Caso você queira ver o funcionamento do programa você pode compila-lo na sua máquina. Para isso é necessário que tenha as seguintes dependências
-* git (Dispensável caso baixe o código fonte em formato compactado pelo GitHub).
-* g++
-* make
-
-O processo de download e compilação é feito pelos seguintes passos
-```sh
-git clone https://github.com/murilx/sistema-bancario-cpp.git
-cd sistema-bancario-cpp
-make
-```
-
-Após a execução do make você pode executar o programa
-```sh
-./gerenciador
-```
