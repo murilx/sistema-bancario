@@ -14,7 +14,7 @@ O usuário é capaz de controlar o programa através de um menu de console. O pr
 5. Realizar transferência entre contas
 6. Mostrar valores totais das contas
 
-Como o objetivo do projeto não era a criação de um modelo real e com propósito no mundo real e sim estudar o paradigma de programção orientada a objeto e
+Como o objetivo do projeto não era a criação de um modelo real e com propósito no mundo real e sim estudar o paradigma de programação orientada a objeto e
 também a escrita de testes (através do lançamento de excessões) como pode ser visto no 
 [enunciado](https://github.com/murilx/sistema-bancario-cpp/blob/main/README.md#enunciado) do projeto, não há nenhum modo de inserção
 de clientes e/ou contas e todas elas foram introduzidas no código fonte do projeto.
