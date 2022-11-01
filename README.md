@@ -20,7 +20,7 @@ também a escrita de testes (através do lançamento de excessões) como pode se
 de clientes e/ou contas e todas elas foram introduzidas no código fonte do projeto.
 
 Como resultado, o projeto possui **4 contas** e **3 clientes**. Cada conta possui um saldo preestabelecido e devem pertencer a um cliente. Três das contas
-possui saldo inicial de 1000 reais e a outra possui saldo inicial de 500 reais.
+possuem saldo inicial de 1000 reais e a outra possui saldo inicial de 500 reais.
 
 Todo o dinheiro foi tratado como sendo um `int` e estando em centavos para evitar qualquer problema de arredondamento durante as manipulações 
 de saldo que poderiam ser causadas caso fosse utilizado variáveis `double`.
